@@ -51,6 +51,15 @@ class UsersTableSeeder extends Seeder
                 'password' => 'kirov1234',
                 'original_filename' => 'kirov.jpg',
             ],
+            [
+                'id' => 5,
+                'name'=> 'Chunchunmaru',
+                'email' => 'chunchunmaru@gmail.com',
+                'role_id' => 3,
+                'slug' => 'chunchunmaru',
+                'password' => 'chunchunmaru1234',
+                'original_filename' => 'chunchunmaru.jpg',
+            ]
         ];
 
         foreach ($users as $userData) {

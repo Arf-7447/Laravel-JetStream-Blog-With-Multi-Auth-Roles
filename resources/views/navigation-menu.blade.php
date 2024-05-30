@@ -40,6 +40,12 @@
                         {{ __('Articles') }}
                     </x-nav-link>
                     @endcan
+
+                    @can('user-manages')
+                    <x-nav-link href="{{ route('user.favorites.index') }}" :active="request()->routeIs('user.favorites.index')">
+                        {{ __('Favorites') }}
+                    </x-nav-link>
+                    @endcan
                 </div>
             </div>
 

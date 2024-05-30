@@ -16,8 +16,7 @@
                 <input type="text" id="searchInputMobile" onkeyup="searchPosts()"
                     placeholder="Search By Title, Author, Campus, Or Category..."
                     class="block md:hidden w-full px-4 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:border-blue-500 dark:focus:border-blue-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-            </div>
-
+                </div>
             {{-- Tampilan Posts --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($posts as $post)

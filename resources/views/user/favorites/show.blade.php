@@ -15,13 +15,13 @@
                     <div class="hidden md:block text-sm text-gray-600 dark:text-gray-400">
                         {{-- Tampilan Desktop --}}
                         <a class="hover:underline"
-                            href="{{ route('user.articles.show-author', $post->author->slug) }}">By
+                            href="{{ route('user.favorites.show-author', $post->author->slug) }}">By
                             {{ $post->author->name }}</a> |
                         {{ $post->created_at->format('F d, Y') }} | Updated {{ $post->updated_at->diffForHumans() }}
                     </div>
                     <div class="block md:hidden text-sm text-gray-600 dark:text-gray-400">
                         {{-- Tampilan Mobile --}}
-                        <a href="{{ route('user.articles.show-author', $post->author->slug) }}"
+                        <a href="{{ route('user.favorites.show-author', $post->author->slug) }}"
                             class="hover:underline">By {{ $post->author->name }}</a>
                         <div>{{ $post->created_at->format('F d, Y') }} | Updated
                             {{ $post->updated_at->diffForHumans() }}</div>
@@ -46,7 +46,7 @@
                     {!! nl2br(e($post->body)) !!}
                 </div>
                 <div class="mt-4 flex justify-between items-center">
-                    <a href="{{ route('user.articles.index') }}"
+                    <a href="{{ route('user.favorites.index') }}"
                         class="text-blue-500 dark:text-blue-300 hover:underline">&laquo; Back to Posts</a>
                     @if ($liked)
                         <a href="unlike/{{ $post->slug }}"

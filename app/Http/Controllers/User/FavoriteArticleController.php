@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-class ArticleController extends Controller
+class FavoriteArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,20 +23,25 @@ class ArticleController extends Controller
         if (Gate::denies('user-manages')) {
             abort(403, 'Unauthorized action.');
         }
-        // Get all posts by author auth
-        $posts = Posts::all();
+        // Get all post likes by the authenticated user
+        // pluck used for getting only the post_id
+        $post_likes = Post_like::where('user_id', Auth::user()->id)->pluck('post_id');
+
+        // Get all posts liked by the authenticated user
+        $posts = Posts::whereIn('id', $post_likes)->get();
         if($posts->count() > 0) {
-            $title = ' Articles : ' . $posts->count();
+            $title = 'Your Favorite Articles : ' . $posts->count();
         }else{
-            $title = 'No Articles Found';
+            $title = 'No Favorite Articles Found';
         }
-        return view('user.articles.index', compact('title', 'posts')); // Pass both variables to the view
+        // $title = 'Your Favorites Articles : ' . $posts->count();
+        return view('user.favorites.index', compact('title', 'posts'));
     }
+
     public function like($slug)
     {
         // Find the post by slug
         $post = Posts::where('slug', $slug)->firstOrFail();
-
         // Create a new like
         $like = new Post_like;
         $like->post_id = $post->id;
@@ -50,13 +55,11 @@ class ArticleController extends Controller
     {
         // Find the post by slug
         $post = Posts::where('slug', $slug)->firstOrFail();
-
         // Find the like and delete it
         $like = Post_like::where('post_id', $post->id)->where('user_id', Auth::user()->id)->first();
         if ($like) {
             $like->delete();
         }
-
         return redirect()->back();
     }
 
@@ -84,12 +87,11 @@ class ArticleController extends Controller
         if (Gate::denies('user-manages')) {
             abort(403, 'Unauthorized action.');
         }
-
         $liked = Post_like::where('post_id', $post->id)->where('user_id', Auth::user()->id)->first();
-        $like = Post_like::where('post_id', $post->id)->count(); // Like::where('post_id', $post->id)->where('user_id', Auth::user()->id)->first', ;
-        $title = 'Details Article';
+        $like = Post_like::where('post_id', $post->id)->count();
+        $title = 'Details Favorite Article';
         // return $like;
-        return view('user.articles.show', compact('title', 'post', 'like', 'liked'));
+        return view('user.favorites.show', compact('title', 'post', 'like', 'liked'));
     }
 
     public function show_by_author(User $author)
@@ -97,28 +99,32 @@ class ArticleController extends Controller
         if (Gate::denies('user-manages')) {
             abort(403, 'Unauthorized action.');
         }
-        // Filter posts author
-        $posts = $author->posts;
-
-        $title = ' Articles By ' . $author->name . ' : ' . count($author->posts);
-        // Filter posts by the authenticated author
-        // $posts = $categories->posts()->where('author_id', Auth::user()->id)->get();
-        return view('user.articles.show-author', compact('title', 'posts'));
+        // Get the IDs of the posts liked by the authenticated user
+        $liked_post_ids = Post_like::where('user_id', Auth::user()->id)->pluck('post_id');
+        // Get the posts authored by the specified user and liked by the authenticated user
+        $posts = Posts::where('author_id', $author->id)
+            ->whereIn('id', $liked_post_ids)
+            ->get();
+        // Count the posts authored by the user
+        $title = 'Articles Favorited By ' . $author->name . ' : ' . $posts->count();
+        return view('user.favorites.show-author', compact('title', 'posts'));
     }
+
 
     public function show_by_categories(Categories $categories)
     {
         if (Gate::denies('user-manages')) {
             abort(403, 'Unauthorized action.');
         }
-        $title = ' Articles In ' . $categories->name . ' : ' . count($categories->posts);
-        // Filter posts Categories
-        $posts = $categories->posts;
-
-        // Filter posts by the authenticated user
-        // $posts = $categories->posts()->where('author_id', Auth::user()->id)->get();
-        return view('user.articles.show-category', compact('title', 'posts'));
+        // Get the IDs of the posts liked by the authenticated user
+        $liked_post_ids = Post_like::where('user_id', Auth::user()->id)->pluck('post_id');
+        // Get the posts in the specified category and liked by the authenticated user
+        $posts = $categories->posts()->whereIn('id', $liked_post_ids)->get();
+        // Set the title
+        $title = 'Articles Favorited In ' . $categories->name . ' : ' . $posts->count();
+        return view('user.favorites.show-category', compact('title', 'posts'));
     }
+
 
     // Show all posts by campus
     public function show_by_campus(Campus $campus)
@@ -126,13 +132,16 @@ class ArticleController extends Controller
         if (Gate::denies('user-manages')) {
             abort(403, 'Unauthorized action.');
         }
-        $title = 'Articles From ' . $campus->name . ' : ' . count($campus->posts);
-        // Filter posts Campus
-        $posts = $campus->posts;
-        // Filter posts by the authenticated user
-        // $posts = $campus->posts()->where('author_id', Auth::user()->id)->get();
-        return view('user.articles.show-campus', compact('title', 'posts'));
+        // Get the IDs of the posts liked by the authenticated user
+        $liked_post_ids = Post_like::where('user_id', Auth::user()->id)->pluck('post_id');
+        // Get the posts from the specified campus and liked by the authenticated user
+        $posts = $campus->posts()->whereIn('id', $liked_post_ids)->get();
+        // Set the title
+        $title = 'Articles Favorited From ' . $campus->name . ' : ' . $posts->count();
+        return view('user.favorites.show-campus', compact('title', 'posts'));
     }
+
+
     /**
      * Show the form for editing the specified resource.
      */

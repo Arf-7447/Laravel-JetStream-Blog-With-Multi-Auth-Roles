@@ -8,6 +8,7 @@ use App\Http\Controllers\Author\PostController;
 use App\Http\Controllers\Author\AllPostController;
 // User Controller
 use App\Http\Controllers\User\ArticleController;
+use App\Http\Controllers\User\FavoriteArticleController;
 
 Route::get('/', function () {
     return view('home');
@@ -58,5 +59,20 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/articles/authors/{author:slug}', [ArticleController::class, 'show_by_author'])->name('articles.show-author');
     Route::get('/articles/categories/{categories:slug}', [ArticleController::class, 'show_by_categories'])->name('articles.show-category');
     Route::get('/articles/campus/{campus:slug}', [ArticleController::class, 'show_by_campus'])->name('articles.show-campus');
+
+    // like & Unlike
+    Route::get('/articles/like/{post:slug}', [ArticleController::class, 'like'])->name('like');
+    Route::get('/articles/unlike/{post:slug}', [ArticleController::class, 'unlike'])->name('unlike');
+
+    // favorite Articles
+    Route::resource('favorites', FavoriteArticleController::class)->parameter('favorites', 'post:slug');
+    Route::get('/favorites/authors/{author:slug}', [FavoriteArticleController::class, 'show_by_author'])->name('favorites.show-author');
+    Route::get('/favorites/categories/{categories:slug}', [FavoriteArticleController::class, 'show_by_categories'])->name('favorites.show-category');
+    Route::get('/favorites/campus/{campus:slug}', [FavoriteArticleController::class, 'show_by_campus'])->name('favorites.show-campus');
+
+    // like & Unlike
+    Route::get('/favorites/like/{post:slug}', [FavoriteArticleController::class, 'like'])->name('like');
+    Route::get('/favorites/unlike/{post:slug}', [FavoriteArticleController::class, 'unlike'])->name('unlike');
+
     });
 });

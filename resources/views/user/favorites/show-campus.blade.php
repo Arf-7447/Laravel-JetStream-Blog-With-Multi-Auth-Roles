@@ -23,17 +23,17 @@
                     <article class="post bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
                         {{-- Dummy Image from Unsplash If Image Not Exist --}}
                         @if ($post['image_path'])
-                        <a href="{{ route('user.articles.show', $post['slug']) }}" class="block hover:opacity-80 hover:underline">
+                        <a href="{{ route('user.favorites.show', $post['slug']) }}" class="block hover:opacity-80 hover:underline">
                             <img src="{{ asset('storage/' . $post['image_path']) }}"
                                 alt="{{ $post['title'] }}" class="w-full h-48 object-cover">
                         </a>
                         @else
-                        <a href="{{ route('user.articles.show', $post['slug']) }}" class="block hover:opacity-80 hover:underline">
+                        <a href="{{ route('user.favorites.show', $post['slug']) }}" class="block hover:opacity-80 hover:underline">
                             <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5"
                                 alt="{{ $post['title'] }}" class="w-full h-48 object-cover">
                         </a>
                         @endif
-                        <a href="{{ route('user.articles.show', $post['slug']) }}" class="block hover:opacity-80 hover:underline p-4">
+                        <a href="{{ route('user.favorites.show', $post['slug']) }}" class="block hover:opacity-80 hover:underline p-4">
                             <h2
                                 class="post-title mb-1 text-xl tracking-tight font-bold text-gray-900 dark:text-gray-100">
                                 {{ $loop->iteration }}. {{ Str::limit($post['title'], 10) }}
@@ -42,20 +42,20 @@
                         <div class="px-4 pb-4">
                             <div class="text-base text-gray-500 dark:text-gray-400 mb-2">
                                 <a class="hover:underline"
-                                    href="{{ route('user.articles.show-author', $post->author->slug) }}">{{ $post->author->name }}</a> |
+                                    href="{{ route('user.favorites.show-author', $post->author->slug) }}">{{ $post->author->name }}</a> |
                                 {{ $post->created_at->format('F d, Y') }} | Updated
                                 {{ $post->updated_at->diffForHumans() }}
                             </div>
                             <div class="mb-4" tabindex="0">
-                                <a href="{{ route('user.articles.show-category', $post->categories->slug) }}"
+                                <a href="{{ route('user.favorites.show-category', $post->categories->slug) }}"
                                     class="bg-orange-600 dark:bg-orange-500 text-white text-sm px-2 py-1 rounded hover:underline hover:bg-orange-800">{{ $post->categories->name }}</a>
-                                <a href="{{ route('user.articles.show-campus', $post->campus->slug) }}"
+                                <a href="{{ route('user.favorites.show-campus', $post->campus->slug) }}"
                                     class="bg-blue-600 dark:bg-blue-500 text-white text-sm px-2 py-1 rounded hover:underline hover:bg-blue-800">{{ $post->campus->name }}</a>
                             </div>
                             <p class="my-4 font-light text-gray-900 dark:text-gray-100">
                                 {{ Str::limit($post['body'], 40) }}</p>
                         </div>
-                        <a href="{{ route('user.articles.show', $post['slug']) }}"
+                        <a href="{{ route('user.favorites.show', $post['slug']) }}"
                             class="ml-4 -mb-20 font-medium text-blue-500 dark:text-blue-300 hover:underline">Read More
                             &raquo;</a>
                     </article>
