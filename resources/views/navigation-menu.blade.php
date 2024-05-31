@@ -193,13 +193,17 @@
             </x-responsive-nav-link>
             @endcan
 
-
             @can('user-manages')
             <x-responsive-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.index')">
                 {{ __('Articles') }}
             </x-responsive-nav-link>
             @endcan
 
+            @can('user-manages')
+            <x-responsive-nav-link href="{{ route('user.favorites.index') }}" :active="request()->routeIs('user.favorites.index')">
+                {{ __('Favorites') }}
+            </x-responsive-nav-link>
+            @endcan
 
         </div>
 
