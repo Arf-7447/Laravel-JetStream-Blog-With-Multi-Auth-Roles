@@ -11,9 +11,9 @@ use Illuminate\Support\Arr;
 class Posts extends Model
 {
     use HasFactory;
-    protected $table='posts';
-    protected $id='id';
-    protected $fillable=[
+    protected $table = 'posts';
+    protected $id = 'id';
+    protected $fillable = [
         'slug',
         'title',
         'image_path',
@@ -22,18 +22,6 @@ class Posts extends Model
         'campus_id',
         'body'
     ];
-    public static function find($slug):array
-    {
-        // return Arr::first(static::all(), function ($post) use ($slug) {
-        //     return $post['slug'] === $slug;
-        // });
-        $post = Arr::first(static::all(), fn($post) => $post['slug'] === $slug);
-        if(!$post){
-            abort(404);
-        }
-        return $post;
-        // return Arr::first(static::all(), fn($post) => $post['slug'] === $slug);
-    }
 
     public function categories(): BelongsTo
     {
@@ -51,8 +39,7 @@ class Posts extends Model
     }
 
     public function likes(): BelongsTo
-{
-    return $this->belongsTo(Post_like::class, 'post_id');
-}
-
+    {
+        return $this->belongsTo(Post_like::class, 'post_id');
+    }
 }
