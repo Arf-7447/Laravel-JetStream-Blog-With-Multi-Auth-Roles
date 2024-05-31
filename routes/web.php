@@ -50,9 +50,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     });
 
     Route::group(['middleware' => 'role:user', 'prefix' => 'user', 'as' => 'user.'], function() {
-    Route::get('/blogs', function () {
-        return view('user.blogs.index', ['title' => 'List Of Blogs']);
-    })->name('blogs.index');
+    // Testing Page
+    // Route::get('/blogs', function () {
+    //     return view('user.blogs.index', ['title' => 'List Of Blogs']);
+    // })->name('blogs.index');
 
     // Articles
     Route::resource('articles', ArticleController::class)->parameters(['articles' => 'post:slug']);
