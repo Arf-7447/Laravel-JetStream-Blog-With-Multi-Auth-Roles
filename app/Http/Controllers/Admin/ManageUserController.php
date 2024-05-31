@@ -73,7 +73,7 @@ class ManageUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return redirect()->back();
     }
 
     /**

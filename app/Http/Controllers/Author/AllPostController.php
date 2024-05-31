@@ -35,7 +35,7 @@ class AllPostController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -107,7 +107,7 @@ class AllPostController extends Controller
      */
     public function edit(Posts $posts)
     {
-        //
+        return redirect()->back();
     }
 
     /**

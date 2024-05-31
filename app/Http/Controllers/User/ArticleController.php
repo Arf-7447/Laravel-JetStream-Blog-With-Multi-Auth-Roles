@@ -65,7 +65,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -138,7 +138,7 @@ class ArticleController extends Controller
      */
     public function edit(Posts $post)
     {
-        //
+        return redirect()->back();
     }
 
     /**

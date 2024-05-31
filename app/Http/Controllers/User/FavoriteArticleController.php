@@ -68,7 +68,7 @@ class FavoriteArticleController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->back();
     }
 
     /**
@@ -147,7 +147,7 @@ class FavoriteArticleController extends Controller
      */
     public function edit(Posts $post)
     {
-        //
+        return redirect()->back();
     }
 
     /**
