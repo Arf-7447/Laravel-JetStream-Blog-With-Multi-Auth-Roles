@@ -1,6 +1,6 @@
 <x-app-layout :title="$title">
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight pt-16">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
