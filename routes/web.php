@@ -11,8 +11,8 @@ use App\Http\Controllers\User\ArticleController;
 use App\Http\Controllers\User\FavoriteArticleController;
 
 Route::get('/', function () {
-    return view('home');
-});
+    return view('home', ['title' => 'Home']);
+})->name('home');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     // Add Routes Over Here

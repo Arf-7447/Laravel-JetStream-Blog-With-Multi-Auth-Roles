@@ -1,8 +1,8 @@
 <x-guest-layout :title="__('Login')">
     <x-authentication-card>
         <x-slot name="logo">
-            {{-- <x-authentication-card-logo /> --}}
-            <img class="h-20 w-auto rounded-3xl border-4 border-teal-600 dark:border-white" src="{{ asset('images/company.png') }}" alt="Your Company Logo">
+            <x-authentication-card-logo />
+            {{-- <img class="h-20 w-auto rounded-3xl border-4 border-teal-600 dark:border-white" src="{{ asset('images/company.png') }}" alt="Your Company Logo"> --}}
         </x-slot>
 
         <x-validation-errors class="mb-4" />
