@@ -35,7 +35,7 @@
                         <a href="{{ route('dashboard') }}" class="hover:opacity-80">
                             {{-- <img class="h-20 w-auto rounded-3xl border-4 border-teal-600 dark:border-white"
                             src="{{ asset('images/company.png') }}" alt="Ivanov Insights"> --}}
-                            <x-application-logo/>
+                            <x-application-logo class="h-20 w-auto rounded-3xl border-4 border-teal-600 dark:border-white"/>
                         </a>
                         <div class="flex flex-col items-center sm:items-start sm:ml-4 mt-2 sm:mt-0">
                             <h1 class="text-3xl font-bold italic text-teal-600 dark:text-white font-madimi">Ivanov

@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         {{-- <img class="h-12 w-auto rounded-2xl  border-4 border-teal-600 dark:border-white" src="{{ asset('images/company.png') }}" alt="Your Company Logo"> --}}
                         {{-- <x-application-mark class="block h-9 w-auto" /> --}}
-                        <x-application-mark/>
+                        <x-application-mark class="h-12 w-auto rounded-2xl border-4 border-teal-600 dark:border-white"/>
                     </a>
                 </div>
 
