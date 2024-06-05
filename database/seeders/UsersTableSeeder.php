@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'akahiro@gmail.com',
                 'slug' => 'akahiro',
                 'role_id' => 1,
-                'password' => 'Realneko7447',
+                'password' => 'kuroneko1234',
                 'original_filename' => 'aka.jpg',
             ],
             [
@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'rasya@gmail.com',
                 'role_id' => 2,
                 'slug' => 'rasya-elvira',
-                'password' => 'KaiNyanya027_',
+                'password' => 'whiteneko1234',
                 'original_filename' => 'rasya.jpg',
             ],
             [
