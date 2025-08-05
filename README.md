@@ -73,3 +73,44 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Last step, run command "php artisan migrate --seed" & start app with "php artisan serve"
 
 ## Thanks !!
+
+## 📁 Laravel Jetstream Directory Structure
+
+Here's the general folder structure with important directories:
+
+```
+├── app/
+│   ├── Console/
+│   ├── Exceptions/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   ├── Middleware/
+│   ├── Models/
+│   └── Providers/
+│
+├── bootstrap/
+├── config/
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+│
+├── lang/
+├── public/
+├── resources/
+│   ├── css/
+│   ├── js/
+│   ├── views/         ← Blade files (e.g., layouts, auth, dashboard)
+│   └── markdown/
+│
+├── routes/
+│   ├── web.php        ← Web routes
+│   └── api.php        ← API routes
+│   
+│
+├── storage/
+├── tests/
+├── .env               ← Environment config
+├── artisan
+└── composer.json
+```
