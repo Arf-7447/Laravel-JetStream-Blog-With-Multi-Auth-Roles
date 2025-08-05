@@ -90,7 +90,6 @@ Here's the general folder structure with important directories:
 | `app/Models/`         | Eloquent models for database interaction                                 |
 | `routes/web.php`      | Website routes                                                           |
 | `routes/api.php`      | API routes (if used)                                                     |
-| `routes/fortify.php`  | Jetstream/Fortify authentication routes                                  |
 | `resources/views/`    | All Blade view files                                                     |
 | `resources/css/`      | CSS files including Tailwind                                             |
 | `resources/js/`       | JS files and config for Livewire/Inertia                                |
@@ -109,7 +108,6 @@ Here's the general folder structure with important directories:
 | Cannot access a specific page          | Check `routes/web.php` and make sure proper middleware is used            |
 | CSS not loading                        | Run `npm install && npm run dev`                                          |
 | Uploads not working                    | Run: `php artisan storage:link`                                           |
-| Jetstream page not found (404)         | Check `fortify.php` and verify route is registered                        |
 | Login/register failing                 | Check validation and `.env` (MAIL / DB / SESSION_DRIVER)                  |
 | "Target class does not exist" error    | Check namespace and run `composer dump-autoload`                          |
 | Error 500 in production                | Enable debug in `.env` and check `storage/logs` for details               |
