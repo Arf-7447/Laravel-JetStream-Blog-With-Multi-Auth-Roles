@@ -1,187 +1,75 @@
-# 📘 User Manual – Expert System for LAN Network Damage Diagnosis (Laravel-Based Web App)
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
----
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-## 📖 Table of Contents
+## About Laravel
 
-1. [Introduction](#introduction)
-2. [System Overview](#system-overview)
-3. [Technology Stack](#technology-stack)
-4. [Installation Guide](#installation-guide)
-5. [System Features](#system-features)
-6. [Folder Structure](#folder-structure)
-7. [How to Use the System](#how-to-use-the-system)
-8. [Admin Panel Guide](#admin-panel-guide)
-9. [Troubleshooting](#troubleshooting)
-10. [Maintenance Tips](#maintenance-tips)
-11. [License](#license)
-12. [Credits](#credits)
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
----
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## 🧩 Introduction
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-This expert system helps diagnose LAN (Local Area Network) issues based on user-selected symptoms. It utilizes **Forward Chaining** methods to determine the most likely issue and recommend solutions.
+## Learning Laravel
 
----
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-## 🌐 System Overview
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-The web application has two main user roles:
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-- **User**: Enters symptoms and receives diagnosis results.
-- **Admin**: Manages rules, symptoms, damage types, and user history.
+## Laravel Sponsors
 
----
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-## ⚙️ Technology Stack
+### Premium Partners
 
-- **Laravel** – PHP framework
-- **Jetstream (Livewire)** – Auth scaffolding and SPA experience
-- **Tailwind CSS** – For UI design
-- **SQLite / MySQL** – For database storage
-- **JavaScript** – For UI interactivity
-- **Browsershot** – For generating PDF reports
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
----
+## Contributing
 
-## 🛠️ Installation Guide
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-1. **Clone the Project**
+## Code of Conduct
 
-```bash
-git clone https://github.com/your-repo/lan-expert-system.git
-cd lan-expert-system
-```
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-2. **Install Dependencies**
+## Security Vulnerabilities
 
-```bash
-composer install
-npm install && npm run dev
-```
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-3. **Environment Setup**
+## License
 
-```bash
-cp .env.example .env
-php artisan key:generate
-```
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-4. **Database Migration**
+## How To Run This Project !(>3<)
+- Clone this project
+- Run command "composer install ", "npm Install", & "npm run dev"
+- Run command "cp .env.example .env" and "php artisan key:generate" then configure env ( your database name, app_url & filesystem_disk)
+- Run command "php artisan storage:link"
+- Last step, run command "php artisan migrate --seed" & start app with "php artisan serve"
 
-```bash
-php artisan migrate --seed
-```
-
-5. **Link Storage**
-
-```bash
-php artisan storage:link
-```
-
-6. **Run the Server**
-
-```bash
-php artisan serve
-```
-
-Access the app at `http://localhost:8000`.
-
----
-
-## 🧠 System Features
-
-### User
-
-- Login/Register
-- Select Symptoms
-- View Diagnosis Results
-- Download PDF Report
-
-### Admin
-
-- Manage Users
-- Manage Symptoms
-- Manage Damages
-- Manage Rules (IF-THEN logic)
-- View User Histories
-
----
-
-## 📁 Folder Structure
-
-```
-├── app/
-│   ├── Http/Controllers/          ← Main controllers
-│   ├── Models/                    ← Eloquent models
-│   └── Services/                  ← Custom logic (Diagnosis, CF)
-├── resources/views/               ← Blade templates
-├── routes/web.php                 ← Route definitions
-├── database/seeders/             ← Sample data for symptoms, rules, etc.
-├── public/                        ← Public assets
-├── .env                           ← App config
-```
-
----
-
-## 🚀 How to Use the System
-
-### User Flow
-
-1. Register and login.
-2. Navigate to “Diagnosis”.
-3. Select symptoms related to the network issue.
-4. Click **Diagnose**.
-5. View result and download PDF if needed.
-
----
-
-## 🔐 Admin Panel Guide
-
-1. Login with admin credentials.
-2. Access sidebar menu:
-   - `Manage Users`
-   - `Manage Symptoms`
-   - `Manage Damages`
-   - `Manage Rules`
-   - `Diagnosis Histories`
-3. Use forms to add/edit/delete entries.
-4. Export histories as PDF.
-
----
-
-## ❗ Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| CSS/JS not loading | Run `npm run dev` again |
-| Storage errors | Run `php artisan storage:link` |
-| Database error | Check `.env` DB settings and run migrations |
-| Session expired | Clear browser cookies or restart server |
-| Error 500 | Check logs in `storage/logs/laravel.log` |
-
----
-
-## 🧼 Maintenance Tips
-
-- Regularly backup `.env` and database.
-- Clear cache: `php artisan config:clear`
-- Update dependencies with caution.
-- Monitor logs for suspicious activity.
-
----
-
-## 📝 License
-
-This system is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
----
-
-## 🙏 Credits
-
-Developed by: **Rasta Maulana**  
-Framework: [Laravel](https://laravel.com)  
-Design: [Tailwind CSS](https://tailwindcss.com)
-
----
+## Thanks !!
