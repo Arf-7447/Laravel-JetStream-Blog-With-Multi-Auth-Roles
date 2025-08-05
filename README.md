@@ -74,43 +74,34 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Thanks !!
 
-## 📁 Laravel Jetstream Directory Structure
+## 🛠️ Important Folders to Edit
 
-Here's the general folder structure with important directories:
+| **Folder/File**      | **Function**                                                               |
+|----------------------|----------------------------------------------------------------------------|
+| `app/Http/Controllers/` | Main controllers to handle logic and request                           |
+| `app/Models/`         | Eloquent models for database interaction                                 |
+| `routes/web.php`      | Website routes                                                           |
+| `routes/api.php`      | API routes (if used)                                                     |
+| `resources/views/`    | All Blade view files                                                     |
+| `resources/css/`      | CSS files including Tailwind                                             |
+| `resources/js/`       | JS files and config for Livewire/Inertia                                |
+| `.env`                | Environment configuration (DB, mail, port, etc.)                         |
+| `config/`             | Application configuration (Jetstream, Mail, Auth, etc.)                  |
+| `database/migrations/`| Database structure definitions                                           |
+| `storage/`            | File storage (uploads, logs, etc.)                                       |
 
-```
-├── app/
-│   ├── Console/
-│   ├── Exceptions/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   ├── Middleware/
-│   ├── Models/
-│   └── Providers/
-│
-├── bootstrap/
-├── config/
-├── database/
-│   ├── factories/
-│   ├── migrations/
-│   └── seeders/
-│
-├── lang/
-├── public/
-├── resources/
-│   ├── css/
-│   ├── js/
-│   ├── views/         ← Blade files (e.g., layouts, auth, dashboard)
-│   └── markdown/
-│
-├── routes/
-│   ├── web.php        ← Web routes
-│   └── api.php        ← API routes
-│   
-│
-├── storage/
-├── tests/
-├── .env               ← Environment config
-├── artisan
-└── composer.json
-```
+---
+
+## 🧪 Basic Troubleshooting
+
+| **Common Issue**                        | **Solution**                                                               |
+|----------------------------------------|----------------------------------------------------------------------------|
+| Composer error / missing vendor        | Run: `composer install`                                                   |
+| Cannot access a specific page          | Check `routes/web.php` and make sure proper middleware is used            |
+| CSS not loading                        | Run `npm install && npm run dev`                                          |
+| Uploads not working                    | Run: `php artisan storage:link`                                           |
+| Login/register failing                 | Check validation and `.env` (MAIL / DB / SESSION_DRIVER)                  |
+| "Target class does not exist" error    | Check namespace and run `composer dump-autoload`                          |
+| Error 500 in production                | Enable debug in `.env` and check `storage/logs` for details               |
+
+---
