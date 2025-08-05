@@ -1,136 +1,187 @@
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 📘 User Manual – Expert System for LAN Network Damage Diagnosis (Laravel-Based Web App)
 
 ---
 
-## 📚 Learning Laravel
+## 📖 Table of Contents
 
-Laravel has excellent learning resources:
-
-- 📖 [Laravel Docs](https://laravel.com/docs)
-- 🧪 [Laravel Bootcamp](https://bootcamp.laravel.com)
-- 🎥 [Laracasts](https://laracasts.com)
-
----
-
-## 📦 About This Project
-
-This project is built with:
-
-- **Laravel** – PHP Framework for Web Artisans.
-- **Laravel Jetstream** – Authentication scaffolding and team management.
-- **Tailwind CSS** – Utility-first CSS framework for styling.
-- **Livewire** *(Optional)* – For reactive frontend (if Livewire stack is used).
-- **Alpine.js** – Lightweight JavaScript framework used with Jetstream (for Livewire).
-- **SQLite / MySQL** – As the database (customizable).
-- **Spatie Browsershot** *(if enabled)* – For PDF generation.
-- **Other Libraries** – Depending on features added.
+1. [Introduction](#introduction)
+2. [System Overview](#system-overview)
+3. [Technology Stack](#technology-stack)
+4. [Installation Guide](#installation-guide)
+5. [System Features](#system-features)
+6. [Folder Structure](#folder-structure)
+7. [How to Use the System](#how-to-use-the-system)
+8. [Admin Panel Guide](#admin-panel-guide)
+9. [Troubleshooting](#troubleshooting)
+10. [Maintenance Tips](#maintenance-tips)
+11. [License](#license)
+12. [Credits](#credits)
 
 ---
 
-## 📁 Laravel Jetstream Directory Structure
+## 🧩 Introduction
 
-Here's the general folder structure with important directories:
+This expert system helps diagnose LAN (Local Area Network) issues based on user-selected symptoms. It utilizes **Forward Chaining** methods to determine the most likely issue and recommend solutions.
+
+---
+
+## 🌐 System Overview
+
+The web application has two main user roles:
+
+- **User**: Enters symptoms and receives diagnosis results.
+- **Admin**: Manages rules, symptoms, damage types, and user history.
+
+---
+
+## ⚙️ Technology Stack
+
+- **Laravel** – PHP framework
+- **Jetstream (Livewire)** – Auth scaffolding and SPA experience
+- **Tailwind CSS** – For UI design
+- **SQLite / MySQL** – For database storage
+- **JavaScript** – For UI interactivity
+- **Browsershot** – For generating PDF reports
+
+---
+
+## 🛠️ Installation Guide
+
+1. **Clone the Project**
+
+```bash
+git clone https://github.com/your-repo/lan-expert-system.git
+cd lan-expert-system
+```
+
+2. **Install Dependencies**
+
+```bash
+composer install
+npm install && npm run dev
+```
+
+3. **Environment Setup**
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. **Database Migration**
+
+```bash
+php artisan migrate --seed
+```
+
+5. **Link Storage**
+
+```bash
+php artisan storage:link
+```
+
+6. **Run the Server**
+
+```bash
+php artisan serve
+```
+
+Access the app at `http://localhost:8000`.
+
+---
+
+## 🧠 System Features
+
+### User
+
+- Login/Register
+- Select Symptoms
+- View Diagnosis Results
+- Download PDF Report
+
+### Admin
+
+- Manage Users
+- Manage Symptoms
+- Manage Damages
+- Manage Rules (IF-THEN logic)
+- View User Histories
+
+---
+
+## 📁 Folder Structure
 
 ```
 ├── app/
-│   ├── Console/
-│   ├── Exceptions/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   ├── Middleware/
-│   ├── Models/
-│   └── Providers/
-│
-├── bootstrap/
-├── config/
-├── database/
-│   ├── factories/
-│   ├── migrations/
-│   └── seeders/
-│
-├── lang/
-├── public/
-├── resources/
-│   ├── css/
-│   ├── js/
-│   ├── views/         ← Blade files (e.g., layouts, auth, dashboard)
-│   └── markdown/
-│
-├── routes/
-│   ├── web.php        ← Web routes
-│   └── api.php        ← API routes
-│   
-│
-├── storage/
-├── tests/
-├── .env               ← Environment config
-├── artisan
-└── composer.json
+│   ├── Http/Controllers/          ← Main controllers
+│   ├── Models/                    ← Eloquent models
+│   └── Services/                  ← Custom logic (Diagnosis, CF)
+├── resources/views/               ← Blade templates
+├── routes/web.php                 ← Route definitions
+├── database/seeders/             ← Sample data for symptoms, rules, etc.
+├── public/                        ← Public assets
+├── .env                           ← App config
 ```
 
 ---
 
-## How To Run This Project !
-- Clone this project
-- Run command "composer install ", "npm Install", & "npm run dev"
-- Run command "cp .env.example .env" and "php artisan key:generate" then configure env ( your database name, app_url & filesystem_disk)
-- Run command "php artisan storage:link"
-- Last step, run command "php artisan migrate --seed" & start app with "php artisan serve"
+## 🚀 How to Use the System
+
+### User Flow
+
+1. Register and login.
+2. Navigate to “Diagnosis”.
+3. Select symptoms related to the network issue.
+4. Click **Diagnose**.
+5. View result and download PDF if needed.
 
 ---
 
-## 🛠️ Important Folders to Edit
+## 🔐 Admin Panel Guide
 
-| **Folder/File**      | **Function**                                                               |
-|----------------------|----------------------------------------------------------------------------|
-| `app/Http/Controllers/` | Main controllers to handle logic and request                           |
-| `app/Models/`         | Eloquent models for database interaction                                 |
-| `routes/web.php`      | Website routes                                                           |
-| `routes/api.php`      | API routes (if used)                                                     |
-| `resources/views/`    | All Blade view files                                                     |
-| `resources/css/`      | CSS files including Tailwind                                             |
-| `resources/js/`       | JS files and config for Livewire/Inertia                                |
-| `.env`                | Environment configuration (DB, mail, port, etc.)                         |
-| `config/`             | Application configuration (Jetstream, Mail, Auth, etc.)                  |
-| `database/migrations/`| Database structure definitions                                           |
-| `storage/`            | File storage (uploads, logs, etc.)                                       |
+1. Login with admin credentials.
+2. Access sidebar menu:
+   - `Manage Users`
+   - `Manage Symptoms`
+   - `Manage Damages`
+   - `Manage Rules`
+   - `Diagnosis Histories`
+3. Use forms to add/edit/delete entries.
+4. Export histories as PDF.
 
 ---
 
-## 🧪 Basic Troubleshooting
+## ❗ Troubleshooting
 
-| **Common Issue**                        | **Solution**                                                               |
-|----------------------------------------|----------------------------------------------------------------------------|
-| Composer error / missing vendor        | Run: `composer install`                                                   |
-| Cannot access a specific page          | Check `routes/web.php` and make sure proper middleware is used            |
-| CSS not loading                        | Run `npm install && npm run dev`                                          |
-| Uploads not working                    | Run: `php artisan storage:link`                                           |
-| Login/register failing                 | Check validation and `.env` (MAIL / DB / SESSION_DRIVER)                  |
-| "Target class does not exist" error    | Check namespace and run `composer dump-autoload`                          |
-| Error 500 in production                | Enable debug in `.env` and check `storage/logs` for details               |
+| Issue | Solution |
+|-------|----------|
+| CSS/JS not loading | Run `npm run dev` again |
+| Storage errors | Run `php artisan storage:link` |
+| Database error | Check `.env` DB settings and run migrations |
+| Session expired | Clear browser cookies or restart server |
+| Error 500 | Check logs in `storage/logs/laravel.log` |
 
 ---
 
+## 🧼 Maintenance Tips
 
-## 🤝 Contributing
+- Regularly backup `.env` and database.
+- Clear cache: `php artisan config:clear`
+- Update dependencies with caution.
+- Monitor logs for suspicious activity.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## 🔒 Security
+## 📝 License
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+This system is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## 📄 License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🙏 Credits
+
+Developed by: **Rasta Maulana**  
+Framework: [Laravel](https://laravel.com)  
+Design: [Tailwind CSS](https://tailwindcss.com)
+
+---
