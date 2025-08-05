@@ -23,7 +23,6 @@ Laravel has excellent learning resources:
 
 ---
 
-
 ## 📦 About This Project
 
 This project is built with:
@@ -82,6 +81,15 @@ Here's the general folder structure with important directories:
 
 ---
 
+## How To Run This Project !
+- Clone this project
+- Run command "composer install ", "npm Install", & "npm run dev"
+- Run command "cp .env.example .env" and "php artisan key:generate" then configure env ( your database name, app_url & filesystem_disk)
+- Run command "php artisan storage:link"
+- Last step, run command "php artisan migrate --seed" & start app with "php artisan serve"
+
+---
+
 ## 🛠️ Important Folders to Edit
 
 | **Folder/File**      | **Function**                                                               |
@@ -114,12 +122,6 @@ Here's the general folder structure with important directories:
 
 ---
 
-## How To Run This Project !
-- Clone this project
-- Run command "composer install ", "npm Install", & "npm run dev"
-- Run command "cp .env.example .env" and "php artisan key:generate" then configure env ( your database name, app_url & filesystem_disk)
-- Run command "php artisan storage:link"
-- Last step, run command "php artisan migrate --seed" & start app with "php artisan serve"
 
 ## 🤝 Contributing
 
